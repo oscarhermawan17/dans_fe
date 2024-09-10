@@ -1,0 +1,11 @@
+import { APIClient } from '../client';
+
+export const userSignUp = async (value) => {
+  try {
+    const response = await APIClient.post(`/api/${import.meta.env.VITE_BE_API_VERSION}/auth/signup`, value);
+    return response;
+  } catch (err) {
+    console.error(err);
+    throw err;
+  }
+};
