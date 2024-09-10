@@ -62,7 +62,6 @@ function MainLayout() {
     }
   }
 
-
   const onChangePagination = (e, page) => {
     getJobList({ description, location, fulltime, page })
       .then((response) => {
@@ -72,6 +71,11 @@ function MainLayout() {
           setTotalPages(response.data.totalPages)
         }
       })
+  }
+
+  const goToJobDetail = (e, idJob) => {
+    e.preventDefault()
+    navigate(`/jobdetail/${idJob}`)
   }
 
   return (
@@ -110,8 +114,8 @@ function MainLayout() {
         </Box>
       </form>
       
-      <Box sx={{ padding: 1, bgcolor: 'gray', fontSize: 30, color: 'black' }}>
-        <Box sx={{ padding: 1, bgcolor: 'white', fontSize: 30, color: 'black' }}>
+      <Box sx={{ padding: 1, bgcolor: 'gray', color: 'black' }}>
+        <Box sx={{ padding: 1, bgcolor: 'white', color: 'black' }}>
           <Typography variant="h4" sx={{ margin: '20px 0px'}}>Job List</Typography>
 
           {listJob.map(job => {
@@ -126,7 +130,11 @@ function MainLayout() {
                 borderTop: 'solid 2px black'
               }}>
                 <Box>
-                  <Typography variant="body1" sx={{ fontWeight: 'bold'}}>{job.title}</Typography>
+                  <Typography variant="body1" sx={{ fontWeight: 'bold' }}>
+                    <a style={{ textDecoration: 'none', color: 'black'}} href="/" 
+                    onClick={(e) => goToJobDetail(e, job.id)}>
+                      {job.title}</a>
+                  </Typography>
                   <Typography variant="body2">{job.company} - <strong>{job.type}</strong></Typography>
                 </Box>
                 <Box>

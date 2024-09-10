@@ -5,6 +5,7 @@ import SignUp from "../Pages/SignUpPage/SignUpPage"
 import NotFoundPage from "../Pages/NotFoundPage/NotFoundPage"
 import ProtectedPage from "../Pages/ProtectedPage/ProtectedPage"
 import CheckTokenPage from "../Pages/CheckTokenPage/CheckTokenPage"
+import JobDetailPage from "../Pages/JobDetailPage/JobDetailPage"
 import MainLayout from "../Pages/MainLayout/MainLayout"
 
 //Protected Route
@@ -14,6 +15,9 @@ const protectedRoutes = [{
   children: [{
       path: "/", 
       element: <MainLayout />
+    },{
+      path: "/jobdetail/:id", 
+      element: <JobDetailPage />
     }]
 }]
 

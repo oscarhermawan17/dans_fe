@@ -14,3 +14,13 @@ export const getJobList = async (filtered = { description: '', location: '', ful
     throw err;
   }
 }
+
+export const getJobDetail = async (jobId) => {
+  try {
+    const response = await APIClient.get(`/api/${import.meta.env.VITE_BE_API_VERSION}/job/${jobId}`);
+    return response;
+  } catch (err) {
+    console.error(err);
+    throw err;
+  }
+}
