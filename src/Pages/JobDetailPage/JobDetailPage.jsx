@@ -19,7 +19,6 @@ function JobDetailPage() {
       getJobDetail(id)
         .then((response) => {
           if(response.status === 200) {
-            console.log(response.data)
             setJobDetail(response.data.jobDetail)
           }
         })
